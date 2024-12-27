@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bonne Année 2025 🎉.</title>
+  <style>
+    body{
+      background: paleturquoise;
+    }
+    h1{
+      text-align: center;
+      color: green ;
+    }
+    .div{
+      border: 1px solid black;
+      padding: 5px;
+      border-radius: 5px;
+      margin: 50px auto;
+      font-weight: bold;
+      text-align: center;
+      background: mediumturquoise;
+    }
+    #actual{
+      font-size: 1.3rem;
+      text-align: center;
+      font-weight: bold;
+    }
+    #cont,#ms{
+      font-size: 2rem;
+    }
+    #compterebour{
+      color: red;
+      font-size: 2.7rem;
+      font-weight: bolder;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>MUMBERE SIVIWE ARSÈNE</h1>
+  <div id="actual">
+    
+  </div>
+  <div class="div">
+    <span id="compterebour"></span>
+  </div>
+
+</body>
+<script>
+const y = setInterval(()=>{
+const date = new Date()
+const options={
+  hour:'numeric', minute:'numeric', second:'numeric', weekday: 'long', year:'numeric',month:'long', day:'numeric', hours24: true 
+}
+const heure = date.toLocaleString("fr-FR",options)
+
+document.getElementById("actual").innerHTML= "Date actuelle : " + heure
+},1)
+function comptRebours(){
+  const datefin = new Date("01-01-2025 00:00:00").getTime()
+  
+  const x = setInterval(()=>{
+    const maintenant = new Date().getTime()
+    
+    const reste = datefin - maintenant
+    
+    const jours = Math.floor(reste / 1000 / 60 / 60 / 24)
+    const heures = Math.floor((reste /1000 / 60 / 60) % 24)
+    const minutes = Math.floor((reste / 1000 / 60) % 60)
+    const secondes = Math.floor((reste / 1000) % 60)
+    const message = "Bonne année 2025🎁<br>Je vous souhaite fortune  💵  💲💰et réussite 🎉. Meilleurs vœux à tous. <br>Votre frère: <strong>MUMBERE SIVIWE ARSÈNE</strong>    ❤️."
+    if (reste<=0){
+     document.getElementById("compterebour").innerHTML = message.fontcolor("black")
+    }else{
+      document.getElementById("compterebour").innerHTML = "Dans<br>".fontcolor("black")+ jours + " jours " + heures + ":" + minutes + ":" + secondes + "<br>C'est 2025".fontcolor("black")
+    }
+  }, 1)
+}
+comptRebours()
+</script>
+</html>
